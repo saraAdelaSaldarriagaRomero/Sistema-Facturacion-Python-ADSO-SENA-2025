@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<style>
+  .welcome-container {
+      display: flex; /* Usa Flexbox para alinear elementos */
+      align-items: flex-start; /* Centra verticalmente los elementos */
+      gap: 100px; /* Espacio entre la imagen y el texto */
+      margin-top: 20px; /* Espacio superior */
+      flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+  }
+
+  .welcome-image {
+      width: 500px; /* Ajusta el ancho de la imagen */
+      height: 500px; /* Mantén la proporción de la imagen */
+      margin-left: 100px;
+  }
+
+  .welcome-title {
+      font-family: 'Arial', sans-serif; /* Cambia la fuente */
+      font-size: 2em; /* Tamaño del título */
+      color: #241400; /* Color del texto */
+      margin: -3px 0 0; /* Mueve el título más arriba */
+      margin-right: 100px;
+      flex: 1 1 300px; /* Hace que el título ocupe el espacio disponible */
+  }
+
+  /* Media Query para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .welcome-container {
+      flex-direction: column; /* Coloca la imagen y el texto en columnas */
+      align-items: center; /* Centra los elementos */
+      gap: 30px; /* Menos espacio entre la imagen y el texto */
+    }
+
+    .welcome-image {
+      width: 80%; /* La imagen ocupa el 80% del ancho */
+      margin-left: 0; /* Elimina el margen izquierdo */
+    }
+
+    .welcome-title {
+      font-size: 1.5em; /* Reduce el tamaño del título en pantallas pequeñas */
+      text-align: center; /* Centra el texto */
+      margin-right: 0; /* Elimina el margen derecho */
+      color: #231503;
+    }
+  }
+
+  /* Media Query para pantallas muy pequeñas (móviles) */
+  @media (max-width: 480px) {
+    .welcome-title {
+      font-size: 1.2em; /* Reduce aún más el tamaño del título */
+    }
+  }
+</style>
+
+<div class="welcome-container">
+  <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-factura_114360-3248.jpg?semt=ais_incoming_vrsd"/>
+       
+  
+  <h1 class="welcome-title">¡Bienvenidos al Sistema de Facturación!</h1>
+</div>
+
+{% endblock contenido %}
+

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre Completo</th>
+      <th scope="col">Correo Electrónico</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for usuario in usuarios %}
+        <tr>
+          <th scope="row">{{ usuario.id }}</th>
+          <td>{{ usuario.nombre_completo }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.rol }}</td>
+          <td> 
+            <a class="btn btn-danger" href="/eliminar_usuario/{{ usuario.id }}">Eliminar</a>
+            <a class="btn btn-success" href="/actualizar_usuario/{{ usuario.id }}">Editar</a>
+          </td>
+        </tr>
+      {% endfor %}    
+  </tbody>
+</table>
+{% endblock contenido %}
+
+
+
