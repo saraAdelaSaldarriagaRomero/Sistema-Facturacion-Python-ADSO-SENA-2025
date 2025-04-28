@@ -1,65 +1,120 @@
-{% extends 'layout.html' %}
-
 {% block contenido %}
 <style>
+  /* Contenedor principal del mensaje de bienvenida */
   .welcome-container {
-      display: flex; /* Usa Flexbox para alinear elementos */
-      align-items: flex-start; /* Centra verticalmente los elementos */
-      gap: 100px; /* Espacio entre la imagen y el texto */
-      margin-top: 20px; /* Espacio superior */
-      flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      text-align: center;
   }
 
+  /* Estilos para la imagen de bienvenida */
   .welcome-image {
-      width: 500px; /* Ajusta el ancho de la imagen */
-      height: 500px; /* Mantén la proporción de la imagen */
-      margin-left: 100px;
+      width: 400px;
+      max-width: 90%;
+      height: auto;
   }
 
+  /* Estilos para el título de bienvenida */
   .welcome-title {
-      font-family: 'Arial', sans-serif; /* Cambia la fuente */
-      font-size: 2em; /* Tamaño del título */
-      color: #241400; /* Color del texto */
-      margin: -3px 0 0; /* Mueve el título más arriba */
-      margin-right: 100px;
-      flex: 1 1 300px; /* Hace que el título ocupe el espacio disponible */
+      font-family: 'Arial', sans-serif;
+      font-size: 2em;
+      color: #241400;
+      flex: 1 1 300px;
   }
 
-  /* Media Query para pantallas pequeñas */
+  /* Contenedor del formulario */
+  .welcome-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+      text-align: left;
+  }
+
+  .form-control {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+
+  .btn-primary {
+      width: 100%;
+      padding: 10px;
+      background-color: #ffcc00f7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 24px;
+      cursor: pointer;
+  }
+
+  .btn-primary:hover {
+      background-color: #efdb08f6;
+  }
+
+  /* Media Query para pantallas pequeñas (menos de 768px) */
   @media (max-width: 768px) {
     .welcome-container {
-      flex-direction: column; /* Coloca la imagen y el texto en columnas */
-      align-items: center; /* Centra los elementos */
-      gap: 30px; /* Menos espacio entre la imagen y el texto */
-    }
-
-    .welcome-image {
-      width: 80%; /* La imagen ocupa el 80% del ancho */
-      margin-left: 0; /* Elimina el margen izquierdo */
+      flex-direction: column;
+      gap: 30px;
     }
 
     .welcome-title {
-      font-size: 1.5em; /* Reduce el tamaño del título en pantallas pequeñas */
-      text-align: center; /* Centra el texto */
-      margin-right: 0; /* Elimina el margen derecho */
-      color: #231503;
+      font-size: 1.8em;
     }
   }
 
-  /* Media Query para pantallas muy pequeñas (móviles) */
+  /* Media Query para pantallas muy pequeñas (menos de 480px) */
   @media (max-width: 480px) {
     .welcome-title {
-      font-size: 1.2em; /* Reduce aún más el tamaño del título */
+      font-size: 1.5em;
+    }
+
+    .welcome-form {
+      padding: 15px;
     }
   }
 </style>
 
+<!-- Contenedor que organiza la imagen, el título y el formulario -->
 <div class="welcome-container">
-  <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-factura_114360-3248.jpg?semt=ais_incoming_vrsd"/>
-       
+  <!-- Imagen de bienvenida -->
+  <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-factura_114360-3248.jpg?semt=ais_incoming_vrsd"
+       class="welcome-image" alt="Sistema de Facturación">
   
-  <h1 class="welcome-title">¡Bienvenidos al Sistema de Facturación!</h1>
+  <!-- Contenedor del mensaje y formulario -->
+  <div class="welcome-content">
+      <h1 class="welcome-title">¡Bienvenidos al Sistema de Facturación!</h1>
+      <form class="welcome-form" action="/" method="post">
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Digite su email" required>
+          </div>
+          <div class="form-group">
+              <label for="contrasena">Contraseña</label>
+              <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+          </div>
+          <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+      </form>
+  </div>
 </div>
 
 {% endblock contenido %}
-

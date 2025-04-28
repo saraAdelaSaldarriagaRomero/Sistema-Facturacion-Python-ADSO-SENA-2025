@@ -1,5 +1,5 @@
 from src.app import app
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_controller import FlaskController
 from src.models.facturas import Facturas
 from src.models.usuarios import Usuarios
@@ -13,7 +13,16 @@ class FacturasController(FlaskController):
             numero_factura= request.form.get('numero_factura')
             fecha_factura = request.form.get('fecha_factura')    
             id_cliente = request.form.get('id_cliente')    
-            id_usuario = request.form.get('id_usuario')       
+            id_usuario = request.form.get('id_usuario')
+
+            # Validación de campos obligatorios
+            if not numero_factura or not id_cliente or not id_usuario:
+                flash("Todos los campos son obligatorios", "error")
+                return redirect(url_for('crear_factura')) 
+
+
+
+
             factura = Facturas(numero_factura,fecha_factura,id_cliente,id_usuario)
             Facturas.agregar_factura(factura)
             return redirect(url_for('ver_facturas'))        

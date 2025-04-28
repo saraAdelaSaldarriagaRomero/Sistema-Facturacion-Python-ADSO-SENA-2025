@@ -3,15 +3,67 @@
 {% block contenido %}
 
 <style>
-  form {
-    align-items: center;
-    margin-left: 300px;
-    margin-top: 50px;
-    margin-right: 300px;
-  }
-  .btn-primary {
-    background-color: brown;
-  }
+  /* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor del formulario */
+form {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Campos del formulario */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #212c31;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Efecto al pasar el cursor */
+input:focus, select:focus {
+  border-color: #FFD700;
+  outline: none;
+  box-shadow: 0 0 5px #FFD700;
+}
+
+/* Botón de enviar */
+.btn-primary {
+  background-color: #FFD700;
+  color: #212c31;
+  border: 2px solid #212c31;
+  font-size: 18px;
+  padding: 10px 15px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e6c200;
+}
+
 </style>
 
 <form action="{{ url_for('actualizar_usuario', id=usuario.id) }}" method="post">

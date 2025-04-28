@@ -3,58 +3,124 @@
 {% block contenido %}
 
 <style>
-  /* Centrado del formulario */
-  form {
-   
-    align-items: center;
-    margin-left: 300px;
-    margin-top: 50px;
-    margin-right: 300px;
-   
+  /* Estilos generales */
+  body {
+    background-color: #E4E3E2; /* Fondo gris claro */
+    font-family: 'Arial', sans-serif;
+    color: #212C31; /* Texto oscuro */
+    margin: 0;
+    padding: 0;
   }
- .btn-primary{
-  background-color: brown;
- }
-  
-  
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.form-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+  /* Estilos para etiquetas */
+  label {
+    font-weight: bold;
+    color: #212C31; /* Texto en azul oscuro */
+  }
+
+  /* Campos del formulario */
+  .form-control {
+    border: 2px solid #F7C50B; /* Borde amarillo */
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .form-control:focus {
+    border-color: #212C31;
+    outline: none;
+    box-shadow: 0 0 5px rgba(33, 44, 49, 0.5);
+  }
+
+  /* Estilos del botón */
+  .btn-primary {
+    background-color: #F7C50B; /* Amarillo */
+    border: none;
+    color: #212C31; /* Texto oscuro */
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: background 0.3s;
+  }
+
+  .btn-primary:hover {
+    background-color: #E4A800;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .form-container {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .btn-primary {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
 </style>
 
-
-<form action="crear_producto" method="post">
-  <div class="form-row">
-    <div class="form-group col-md-6">
+<!-- Contenedor del formulario -->
+<div class="form-container">
+  <form action="crear_producto" method="post">
+    <div class="form-group">
       <label for="descripcion">Descripción Producto</label>
       <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción Producto">
     </div>
-    <div class="form-group col-md-6">
+
+    <div class="form-group">
       <label for="valor_unitario">Valor Unitario</label>
       <input type="text" class="form-control" id="valor_unitario" name="valor_unitario" placeholder="Valor Unitario">
     </div>
-  </div>
-  <div class="form-group col-md-4">
-    <label for="unidad_medida">Unidad de Medida</label>
-    <select id="unidad_medida" name="unidad_medida" class="form-control">
+
+    <div class="form-group">
+      <label for="unidad_medida">Unidad de Medida</label>
+      <select id="unidad_medida" name="unidad_medida" class="form-control">
         <option selected>Seleccione...</option>
         <option value="GRS">GRS</option>
         <option value="UND">UND</option>
-    </select>
-  </div>  
-  <div class="form-group col-md-6">
-    <label for="cantida_stock">Cantidad Stock</label>
-    <input type="text" class="form-control" id="cantida_stock" name="cantida_stock" placeholder="Cantidad en Stock">
-  </div>
-    <div class="form-group col-md-4">
-      <label for="categoria">Categoria</label>
-      <select id="categoria" name="categoria" class="form-control">
-          <option selected>Seleccione...</option>
-          {% for categoria in categorias %}
-            <option value={{categoria.id}}>{{categoria.categoria}}</option>
-          {% endfor %}    
       </select>
-    </div>    
-  <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
+    </div>  
+
+    <div class="form-group">
+      <label for="cantida_stock">Cantidad Stock</label>
+      <input type="text" class="form-control" id="cantida_stock" name="cantida_stock" placeholder="Cantidad en Stock">
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoría</label>
+      <select id="categoria" name="categoria" class="form-control">
+        <option selected>Seleccione...</option>
+        {% for categoria in categorias %}
+          <option value="{{categoria.id}}">{{categoria.categoria}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
 
 {% endblock contenido %}
-
-

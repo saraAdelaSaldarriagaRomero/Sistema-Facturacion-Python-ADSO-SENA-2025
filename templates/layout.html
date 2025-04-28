@@ -22,15 +22,51 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <style>
-      .navbar.bg-primary {
-        background-color: rgb(219, 23, 56) !important; /* Cambia el color a rosa */
-      }
+     /* Estilos generales */
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e4e3e2; /* Fondo gris claro */
+}
 
-      .navbar-nav .nav-link:hover {
-        color: #4B3B2F !important; /* Color café oscuro cuando se pasa el ratón */
-      }
+/* NAVBAR */
+.navbar {
+  background-color: #f7c50b !important; /* Amarillo */
+}
 
-      
+.navbar-brand, .navbar-nav .nav-link {
+  color: #212c31 !important; /* Negro oscuro */
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e4e3e2 !important; /* Cambia a gris claro al pasar el mouse */
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+  background-color: #f7c50b; /* Amarillo */
+  border: none;
+}
+
+.dropdown-item {
+  color: #212c31 !important; /* Negro oscuro */
+}
+
+.dropdown-item:hover {
+  background-color: #212c31; /* Negro oscuro */
+  color: #f7c50b !important; /* Amarillo */
+}
+
+/* Botón del menú en versión móvil */
+.navbar-toggler {
+  border-color: #212c31; /* Negro oscuro */
+}
+
+.navbar-toggler-icon {
+  filter: invert(20%); /* Oscurece el icono */
+}
+
     </style>
 
 
